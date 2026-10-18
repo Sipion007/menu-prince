@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06070d">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Menu de la Boulangerie Prince, Restaurant, Pâtisserie et Glacier au Feu de Kennedy et à Lobia Carrefour Badaba, Daloa.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Prince">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Boulangerie Prince</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap">
+<style>
+:root {
+  /* Layout: a night-lit shopfront photo opens the page, a harlequin band (the checkered wall) leads into a warm, wood-dark menu set as title-left / dishes-right panels. */
+  --night: #06070d;
+  --bg: #0c0907;
+  --bg-deep: #090604;
+  --gold: #f4b52e;
+  --gold-soft: #f8d27f;
+  --cream: #f6ecd8;
+  --muted: #b8a88d;
+  --line: rgba(246, 236, 216, 0.14);
+  --display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --body: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--cream);
+  font: 400 16px/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--night);
+  min-height: clamp(560px, 92svh, 860px);
+  display: grid;
+  grid-template-columns: minmax(0, 1120px);
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 40px) 16px clamp(32px, 6vw, 64px);
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 46% 10%;
+  z-index: -2;
+  animation: settle 1.8s var(--ease) both;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(6, 7, 13, 0.78) 0, rgba(6, 7, 13, 0) 30%),
+    linear-gradient(to top, #0c0907 0, rgba(12, 9, 7, 0.9) 24%, rgba(12, 9, 7, 0.35) 48%, rgba(12, 9, 7, 0) 66%);
+}
+.hero-logo {
+  width: clamp(84px, 13vw, 132px);
+  height: auto;
+  filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 26px rgba(244, 181, 46, 0.28));
+  animation: rise 0.8s var(--ease) both;
+}
+.hero-copy { grid-row: 3; display: grid; gap: 0.9rem; justify-items: start; }
+.eyebrow {
+  font: 500 0.78rem/1.4 var(--body);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  animation: rise 0.8s var(--ease) 0.1s both;
+}
+h1 {
+  font: 600 clamp(2.7rem, 9vw, 6rem)/0.92 var(--display);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  animation: rise 0.9s var(--ease) 0.18s both;
+}
+h1 em { display: block; font-style: italic; font-weight: 500; color: var(--gold-soft); }
+.lede {
+  max-width: 34rem;
+  color: var(--cream);
+  opacity: 0.9;
+  font-size: clamp(1rem, 2.4vw, 1.12rem);
+  animation: rise 0.9s var(--ease) 0.26s both;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin-top: 0.4rem;
+  animation: rise 0.9s var(--ease) 0.34s both;
+}
+.cta {
+  display: inline-block;
+  padding: 15px 28px;
+  background: var(--gold);
+  color: var(--night);
+  font: 600 0.82rem/1 var(--body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: transform 0.14s var(--ease), background-color 0.2s var(--ease);
+}
+.cta:active { transform: scale(0.97); }
+.resa { font-size: 0.92rem; color: var(--muted); }
+.resa strong { display: block; font: 500 0.7rem/1.6 var(--body); letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream); opacity: 0.8; }
+.resa a { text-decoration: none; color: var(--cream); font-variant-numeric: tabular-nums; }
+
+@keyframes settle { from { transform: scale(1.07); } to { transform: scale(1); } }
+@keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+
+/* ---------- Harlequin band (echo of the checkered wall) ---------- */
+.harlequin {
+  height: 20px;
+  background-color: #0a0806;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%230a0806'/%3E%3Cpath d='M10 0L20 10L10 20L0 10Z' fill='%23f4b52e'/%3E%3C/svg%3E");
+  background-size: 20px 20px;
+}
+
+/* ---------- Sticky category nav ---------- */
+.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: rgba(12, 9, 7, 0.9);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-in {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 8px 16px;
+}
+.nav-logo { width: 38px; height: 38px; flex: none; }
+.tabs {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs a {
+  flex: none;
+  padding: 11px 14px;
+  font: 500 0.76rem/1 var(--body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  border-radius: 2px;
+  transition: color 0.2s var(--ease), background-color 0.2s var(--ease), transform 0.14s var(--ease);
+}
+.tabs a:active { transform: scale(0.97); }
+.tabs a[aria-current="true"] { color: var(--night); background: var(--gold); }
+@media (hover: hover) {
+  .tabs a:hover { color: var(--cream); }
+  .tabs a[aria-current="true"]:hover { color: var(--night); }
+  .cta:hover { background: var(--gold-soft); }
+}
+
+/* ---------- Menu ---------- */
+main {
+  background:
+    radial-gradient(120% 50% at 50% 0, rgba(244, 181, 46, 0.11), transparent 62%),
+    linear-gradient(var(--bg), var(--bg-deep));
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.cat {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 66px;
+}
+.cat:first-child { border-top: 0; }
+.cat-head h2 {
+  font: 600 clamp(2.1rem, 4.4vw, 3rem)/1.02 var(--display);
+  text-wrap: balance;
+}
+.rule { display: block; width: 44px; height: 2px; background: var(--gold); margin: 0.9rem 0 0.75rem; }
+.cat-head p { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.dishes { min-width: 0; }
+.dish {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.35rem 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.dish:first-child { padding-top: 0; }
+.dish h3 { font: 500 1.08rem/1.3 var(--body); letter-spacing: 0.01em; }
+.dish p { margin-top: 0.15rem; color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
+.prices { display: flex; align-items: flex-end; justify-content: flex-end; gap: 0.4rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pr { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; min-width: 4.9rem; }
+.compact .pr { min-width: 0; }
+.pr i { font: 500 0.66rem/1 var(--body); font-style: normal; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.pr b { font: 500 1.08rem/1.15 var(--body); color: var(--gold); }
+.pr b small { margin-left: 0.18em; font-size: 0.7em; font-weight: 400; color: var(--gold-soft); opacity: 0.8; }
+
+.dishes.compact { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 3.5rem; }
+.dishes.compact .dish { align-items: baseline; }
+.dishes.compact .dish:first-child { padding-top: 1rem; }
+.dishes.compact .dish:first-child { border-top: 0; }
+
+@media (min-width: 900px) {
+  .cat { grid-template-columns: 260px minmax(0, 1fr); gap: 4rem; }
+  .dishes.compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dishes.compact .dish:first-child { padding-top: 1rem; }
+}
+@media (max-width: 519px) {
+  .dish.multi { grid-template-columns: minmax(0, 1fr); }
+  .dish.multi .prices { justify-content: flex-start; }
+  .dish.multi .pr { align-items: flex-start; min-width: 4.9rem; }
+}
+@media (hover: hover) {
+  .dish { transition: background-color 0.25s var(--ease); }
+}
+
+/* ---------- Footer ---------- */
+.foot { background: var(--bg-deep); }
+.foot-in {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) 16px clamp(2rem, 5vw, 3rem);
+  display: grid;
+  gap: 1.75rem 3rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+}
+.foot-brand { display: flex; align-items: center; gap: 1.1rem; }
+.foot-brand img { width: 76px; height: 76px; flex: none; }
+.foot-brand strong { display: block; font: 600 1.7rem/1.1 var(--display); }
+.foot-brand span { color: var(--muted); font-size: 0.92rem; }
+.foot-resa { color: var(--muted); font-size: 0.95rem; }
+.foot-resa b { display: block; margin-bottom: 0.2rem; font: 500 0.7rem/1.6 var(--body); letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
+.foot-resa a { color: var(--cream); text-decoration: none; font-variant-numeric: tabular-nums; }
+.foot-note { grid-column: 1 / -1; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; letter-spacing: 0.04em; }
+@media (min-width: 760px) {
+  .foot-in { grid-template-columns: 1fr auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Photo galleries (immersive dish cards) ---------- */
+.wrap { max-width: 1240px; }
+.cat.gal { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+
+.gallery { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.shot {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: #1a120b;
+  color: var(--cream);
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+  transition: transform 0.16s var(--ease);
+}
+.shot:active { transform: scale(0.992); }
+.shot-media { position: absolute; inset: 0; overflow: hidden; }
+.shot img {
+  position: absolute;
+  left: 0;
+  top: -8%;
+  width: 100%;
+  height: 116%;
+  max-width: none;
+  object-fit: cover;
+  scale: 1;
+  transition: scale 0.8s var(--ease);
+}
+.shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(8, 5, 3, 0.95) 0, rgba(8, 5, 3, 0.6) 26%, rgba(8, 5, 3, 0) 60%);
+}
+.shot-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.7rem 1.25rem;
+  padding: clamp(16px, 2.4vw, 28px);
+}
+.shot-text { min-width: 0; }
+.shot-name { display: block; font: 600 clamp(1.65rem, 2.9vw, 2.4rem)/1.04 var(--display); text-wrap: balance; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5); }
+.shot-desc { display: block; margin-top: 0.4rem; max-width: 28rem; font-size: 0.9rem; line-height: 1.4; color: var(--cream); opacity: 0.85; }
+.shot .prices { gap: 1.1rem; }
+.shot .pr { min-width: 0; }
+.shot .pr[aria-hidden="true"] { display: none; }
+.shot .pr b { font-size: 1.15rem; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6); }
+.shot-zoom {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  padding: 8px 12px;
+  font: 500 0.66rem/1 var(--body);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  border: 1px solid rgba(246, 236, 216, 0.42);
+  border-radius: 2px;
+  background: rgba(8, 5, 3, 0.38);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+@media (hover: hover) {
+  .shot:hover img { scale: 1.06; }
+  .shot:hover .shot-zoom { background: var(--gold); color: var(--night); border-color: var(--gold); }
+}
+.shot:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+
+/* scroll-linked drift: the photo glides inside its frame as the page scrolls */
+@supports (animation-timeline: view()) {
+  .shot img { animation: drift linear both; animation-timeline: view(); }
+  @keyframes drift { from { translate: 0 -5%; } to { translate: 0 5%; } }
+}
+
+/* "Et aussi": dishes without a photo */
+.also { border: 1px solid var(--line); border-radius: 2px; background: rgba(246, 236, 216, 0.03); padding: 22px 22px 6px; overflow: hidden; min-width: 0; }
+.also-title { margin-bottom: 0.4rem; font: 500 0.7rem/1.6 var(--body); letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); }
+.also .dish:first-child { padding-top: 0.8rem; }
+.also .dish:last-child { border-bottom: 0; }
+.also.below { padding: 22px clamp(18px, 3vw, 32px) 8px; }
+.dishes.cols { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 3.5rem; }
+
+@media (min-width: 640px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(340px, 46vw, 440px); }
+  .shot { aspect-ratio: auto; }
+  .also.below { grid-column: 1 / -1; }
+}
+@media (min-width: 900px) {
+  .gallery { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; grid-auto-rows: clamp(400px, 38vw, 520px); }
+  .shot.s7 { grid-column: span 7; }
+  .shot.s5 { grid-column: span 5; }
+  .shot.s12 { grid-column: span 12; }
+  .also.in-grid { grid-column: span 5; }
+  .dishes.cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dishes.cols .dish:first-child { padding-top: 0.8rem; }
+}
+.below { margin-top: 12px; }
+
+/* ---------- Lightbox ---------- */
+html.lb-lock { overflow: hidden; }
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: #050302;
+  color: var(--cream);
+}
+.lb-bg {
+  position: absolute;
+  left: -10%;
+  top: -10%;
+  width: 120%;
+  height: 120%;
+  max-width: none;
+  object-fit: cover;
+  filter: blur(42px) brightness(0.42) saturate(1.25);
+  pointer-events: none;
+}
+.lb-top {
+  position: absolute;
+  z-index: 3;
+  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  left: clamp(16px, 3vw, 40px);
+  right: clamp(16px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lb-count { font: 500 0.78rem/1 var(--body); letter-spacing: 0.24em; color: var(--cream); opacity: 0.85; font-variant-numeric: tabular-nums; }
+.lb-btn {
+  padding: 13px 18px;
+  font: 500 0.72rem/1 var(--body);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: rgba(8, 5, 3, 0.5);
+  border: 1px solid rgba(246, 236, 216, 0.4);
+  border-radius: 2px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: transform 0.14s var(--ease), background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.lb-btn:active { transform: scale(0.97); }
+.lb-btn:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+@media (hover: hover) { .lb-btn:hover { background: var(--gold); color: var(--night); border-color: var(--gold); } }
+.lb-stage {
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+  padding: calc(env(safe-area-inset-top, 0px) + 64px) clamp(12px, 4vw, 64px) 8px;
+  touch-action: pan-y;
+}
+.lb-img { display: block; width: 100%; height: 100%; max-width: none; object-fit: contain; filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.55)); }
+.lb-cap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 14px 24px;
+  padding: 12px clamp(16px, 4vw, 64px) calc(18px + env(safe-area-inset-bottom, 0px));
+}
+.lb-info { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px 24px; }
+.lb-title { font: 600 clamp(1.7rem, 4vw, 2.7rem)/1.05 var(--display); }
+.lb-desc { margin-top: 0.3rem; color: var(--cream); opacity: 0.8; font-size: 0.95rem; }
+.lb .pr[aria-hidden="true"] { display: none; }
+.lb .prices { gap: 1.2rem; }
+.lb .pr { min-width: 0; }
+.lb .pr b { font-size: 1.3rem; }
+.lb-nav { display: flex; gap: 10px; }
+.lb-nav .lb-btn { flex: 1; }
+@media (min-width: 720px) {
+  .lb-cap { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+  .lb-nav .lb-btn { flex: none; min-width: 9.5rem; }
+}
+
+.lb[hidden], [hidden] { display: none !important; }
+
+/* ---------- Photo sliders (one carousel per category) ---------- */
+.slider { display: grid; gap: 16px; margin-inline: -16px; min-width: 0; }
+.track {
+  --sw: clamp(280px, 82vw, 760px);
+  --sh: clamp(440px, 66vw, 600px);
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding-inline: calc(50% - var(--sw) / 2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+.track::-webkit-scrollbar { display: none; }
+.track:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: -2px; }
+.track.dragging { cursor: grabbing; scroll-snap-type: none; }
+.track.dragging .shot { cursor: grabbing; pointer-events: none; }
+.slider .shot {
+  flex: 0 0 var(--sw);
+  width: var(--sw);
+  height: var(--sh);
+  aspect-ratio: auto;
+  scroll-snap-align: center;
+}
+.slider .shot img { left: -8%; top: 0; width: 116%; height: 100%; animation: none; }
+.slider .shot-name { font-size: clamp(1.8rem, 3.4vw, 2.7rem); }
+
+/* the centred slide grows, its neighbours step back; the photo drifts sideways inside its frame */
+@supports (animation-timeline: view()) {
+  .slider .shot { animation: slide-focus linear both; animation-timeline: view(inline); }
+  .slider .shot img { animation: drift-x linear both; animation-timeline: view(inline); }
+  @keyframes slide-focus { 0% { scale: 0.9; } 50% { scale: 1; } 100% { scale: 0.9; } }
+  @keyframes drift-x { from { translate: -5% 0; } to { translate: 5% 0; } }
+}
+
+.slider-bar { display: flex; align-items: center; gap: 14px; padding-inline: 16px; }
+.slider-progress { position: relative; flex: 1; min-width: 40px; height: 2px; background: var(--line); overflow: hidden; }
+.slider-progress span { position: absolute; inset: 0; background: var(--gold); transform-origin: left; transform: scaleX(var(--p, 0.2)); transition: transform 0.4s var(--ease); }
+.slider-count { font: 500 0.78rem/1 var(--body); letter-spacing: 0.2em; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.slider-nav { display: flex; gap: 8px; }
+.slider-nav .lb-btn { padding: 12px 14px; letter-spacing: 0.16em; }
+.slider-nav .lb-btn[aria-disabled="true"] { opacity: 0.35; pointer-events: none; }
+@media (min-width: 640px) {
+  .slider-nav .lb-btn { padding: 13px 20px; letter-spacing: 0.22em; }
+  .slider-bar { padding-inline: 32px; }
+}
+@media (max-width: 519px) {
+  .slider-bar { gap: 10px; }
+  .slider-count { display: none; }
+}
+
+/* full-bleed carousels so neighbouring slides peek in from the screen edges */
+.slider { margin-inline: calc(50% - 50vw); }
+.slider-bar { width: 100%; max-width: 1240px; margin-inline: auto; }
+body { overflow-x: clip; }
+.slider.single .slider-bar { display: none; }
+
+/* ---------- Accueil de la carte : une bande par catégorie, plats en défilement horizontal ---------- */
+.home { padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 4vw, 3rem); }
+.home[hidden] { display: none !important; }
+.home-head h2 { font: 600 clamp(2.1rem, 4.4vw, 3rem)/1.02 var(--display); }
+.home-head p { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.home-head { margin-bottom: 1.6rem; }
+
+.band {
+  margin-bottom: 18px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #f6bd3b 0%, #eaa61c 100%);
+  color: #1d140a;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+.band-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 18px 14px 22px; }
+.band-head h2 { font: 700 clamp(1.7rem, 4.6vw, 2.5rem)/1.05 var(--display); letter-spacing: 0.005em; text-wrap: balance; }
+.band-go {
+  flex: none; text-decoration: none;
+  font: 600 0.74rem/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold-soft); background: #0c0907; border-radius: 999px; padding: 14px 22px;
+  transition: transform 0.16s var(--ease), background-color 0.2s;
+}
+.band-go:active { transform: scale(0.96); }
+@media (hover: hover) { .band-go:hover { background: #241a0f; } }
+
+.band-row {
+  display: flex; gap: 12px; align-items: stretch;
+  padding: 2px 18px 20px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity; scroll-padding-inline: 18px;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+.band-row::-webkit-scrollbar { display: none; }
+.band-row.dragging { cursor: grabbing; scroll-snap-type: none; }
+.band-row.dragging .chip { pointer-events: none; }
+.band-row:focus-visible { outline: 2px solid #0c0907; outline-offset: -4px; border-radius: 20px; }
+
+.chip {
+  flex: 0 0 clamp(150px, 43vw, 236px);
+  scroll-snap-align: start;
+  display: flex; flex-direction: column;
+  text-align: left; text-decoration: none; color: #1d140a;
+  background: var(--cream);
+  border: 0; border-radius: 18px; padding: 0; overflow: hidden;
+  cursor: pointer; font: inherit;
+  box-shadow: 0 6px 18px rgba(60, 35, 0, 0.22);
+  transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+}
+.chip:active { transform: scale(0.98); }
+@media (hover: hover) { .chip:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(60, 35, 0, 0.3); } }
+.chip:focus-visible { outline: 3px solid #0c0907; outline-offset: 2px; }
+.chip-media { position: relative; display: block; aspect-ratio: 1 / 1; background: #e6d8bd; overflow: hidden; }
+.chip-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.chip-body { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px 15px; flex: 1; justify-content: space-between; }
+.chip-name { font: 700 1.18rem/1.15 var(--display); }
+.chip-desc { font: 400 0.8rem/1.35 var(--body); color: #5b4a30; }
+.chip-price { display: flex; align-items: baseline; gap: 5px; font-variant-numeric: tabular-nums; }
+.chip-price i { font: 500 0.64rem/1 var(--body); font-style: normal; letter-spacing: 0.16em; text-transform: uppercase; color: #6b5735; }
+.chip-price b { font: 600 1.15rem/1 var(--body); color: #1d140a; }
+.chip-price small { font: 500 0.78rem/1 var(--body); color: #6b5735; }
+
+.chip-more { background: #0c0907; color: var(--gold-soft); box-shadow: none; }
+.chip-more-in { display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; height: 100%; padding: 16px; min-height: 200px; background: linear-gradient(160deg, #1b1309, #0c0907); }
+.chip-more-in b { font: 700 1.25rem/1.15 var(--display); color: var(--gold); }
+.chip-more-in span { font: 500 0.72rem/1.3 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+.back {
+  display: inline-block; margin-bottom: 1.1rem; text-decoration: none;
+  font: 500 0.76rem/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold-soft); padding: 4px 0; border-bottom: 1px solid rgba(248, 210, 127, 0.4);
+}
+@media (hover: hover) { .back:hover { color: var(--cream); border-color: var(--cream); } }
+@media (min-width: 900px) {
+  .band { border-radius: 30px; }
+  .band-head { padding: 24px 28px 16px 30px; }
+  .band-row { padding: 2px 28px 26px; scroll-padding-inline: 28px; }
+}
+
+/* ---------- Catégorie en bannières : Pain et gâteau ---------- */
+.banners { display: grid; gap: clamp(14px, 2.4vw, 26px); padding: 0 0 clamp(1rem, 3vw, 2rem); max-width: 1100px; }
+.banner { margin: 0; border-radius: 6px; overflow: hidden; background: #120d09; box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45); outline: 1px solid rgba(246, 189, 59, 0.28); outline-offset: -1px; }
+.banner img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.banner-card { flex: 0 0 min(80vw, 600px); display: block; scroll-snap-align: start; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #120d09; box-shadow: 0 10px 28px rgba(60, 35, 0, 0.35); transition: transform 0.18s var(--ease); }
+.banner-card:active { transform: scale(0.985); }
+.banner-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.band-row.dragging .banner-card { pointer-events: none; }
+
+
+/* ---------- Application : plein écran, zones sûres, bannière d'installation ---------- */
+html { background: var(--bg); -webkit-tap-highlight-color: transparent; scroll-padding-top: calc(66px + env(safe-area-inset-top, 0px)); }
+body { min-height: 100vh; min-height: 100dvh; }
+@media (display-mode: standalone), (display-mode: fullscreen) {
+  html { overscroll-behavior-y: none; }
+  body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+}
+.hero { padding-top: calc(clamp(20px, 4vw, 40px) + env(safe-area-inset-top, 0px)); }
+.nav { top: 0; padding-top: env(safe-area-inset-top, 0px); }
+.nav-in { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.cat { scroll-margin-top: calc(66px + env(safe-area-inset-top, 0px)); }
+.foot { padding-bottom: env(safe-area-inset-bottom, 0px); }
+.lb { padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px); }
+html.pwa-on body { padding-bottom: 150px; }
+
+.pwa {
+  position: fixed;
+  z-index: 60;
+  left: 12px; right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  margin-inline: auto;
+  max-width: 520px;
+  border: 1px solid rgba(244, 181, 46, 0.45);
+  border-radius: 18px;
+  background: rgba(12, 9, 7, 0.94);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 0, 0, 0.6);
+  color: var(--cream);
+  padding: 14px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
+}
+.pwa[hidden] { display: none !important; }
+.pwa.show { opacity: 1; transform: none; }
+.pwa-row { display: flex; align-items: center; gap: 14px; }
+.pwa-logo { width: 54px; height: 54px; border-radius: 13px; flex: none; }
+.pwa-txt { min-width: 0; flex: 1; display: grid; gap: 2px; }
+.pwa-txt strong { font: 600 1.3rem/1.15 var(--display); letter-spacing: 0.01em; }
+.pwa-txt span { font: 400 0.86rem/1.4 var(--body); color: var(--muted); }
+.pwa-act { display: flex; align-items: center; gap: 8px; flex: none; }
+.pwa-install {
+  font: 600 0.78rem/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--night); background: var(--gold); border: 0; border-radius: 999px;
+  padding: 13px 20px; cursor: pointer; transition: transform 0.16s var(--ease), background 0.2s;
+}
+.pwa-install:active { transform: scale(0.97); }
+.pwa-later {
+  font: 500 0.78rem/1 var(--body); letter-spacing: 0.08em; color: var(--muted);
+  background: none; border: 0; padding: 13px 8px; cursor: pointer;
+}
+.pwa-steps { margin: 12px 0 0; padding: 12px 0 0 1.3rem; border-top: 1px solid var(--line); display: grid; gap: 7px; font: 400 0.92rem/1.45 var(--body); color: var(--cream); }
+.pwa-steps[hidden] { display: none; }
+.pwa-steps li::marker { color: var(--gold); font-weight: 600; }
+.pwa-steps b { color: var(--gold-soft); font-weight: 500; }
+.pwa button:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+.pwa-close-row { display: flex; justify-content: flex-end; margin-top: 8px; }
+.pwa.steps-only .pwa-act .pwa-install { display: none; }
+.pwa.steps-only .pwa-act { width: auto; margin-left: auto; }
+.pwa.steps-only .pwa-row { flex-wrap: nowrap; align-items: flex-start; }
+.pwa.steps-only .pwa-later { padding: 6px 4px; }
+@media (max-width: 480px) {
+  .pwa:not(.steps-only) .pwa-row { flex-wrap: wrap; }
+  .pwa:not(.steps-only) .pwa-act { width: 100%; justify-content: space-between; }
+  .pwa-install { flex: 1; padding: 15px 20px; }
+  .pwa-logo { width: 48px; height: 48px; }
+}
+@media (min-width: 900px) {
+  .pwa { left: auto; right: 24px; bottom: 24px; margin: 0; width: 620px; }
+  .pwa-txt strong { font-size: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .pwa { transition: opacity 0.2s; transform: none; } }
+.cat[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-photo" src="img/hero.jpg" alt="Salle du restaurant Prince le soir : convives à table, serveur en tablier, enseigne Prince en fond" width="1800" height="1535" fetchpriority="high">
+  <img class="hero-logo" src="img/logo.png" alt="Logo Boulangerie Prince Pâtisserie" width="132" height="132">
+  <div class="hero-copy">
+    <p class="eyebrow">Restaurant · Pâtisserie · Glacier</p>
+    <h1>Boulangerie <em>Prince</em></h1>
+    <p class="lede">Au Feu de Kennedy et à Lobia Carrefour Badaba, Daloa.<br>Toute la carte, du petit déjeuner aux glaces.</p>
+    <div class="hero-actions">
+      <a class="cta" href="#carte">Voir la carte</a>
+      <p class="resa"><strong>Réservation</strong><a href="tel:+2250711291708">07 11 29 17 08</a> · <a href="tel:+2250798605050">07 98 60 50 50</a></p>
+    </div>
+  </div>
+</header>
+
+<div class="harlequin" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Catégories de la carte">
+  <div class="nav-in">
+    <img class="nav-logo" src="img/logo.png" alt="Boulangerie Prince" width="38" height="38">
+    <div class="tabs"><a href="#carte">La carte</a><a href="#pain-gateau">Pain &amp; gâteau</a><a href="#petit-dejeuner">Petit déj.</a><a href="#pizzas">Pizzas</a><a href="#poulets-poissons">Poulets &amp; poissons</a><a href="#sandwichs">Sandwichs</a><a href="#crepes">Crêpes</a><a href="#spaghettis">Spaghettis</a><a href="#boissons">Boissons</a><a href="#jus">Jus</a><a href="#desserts">Desserts</a><a href="#cafe-the">Café &amp; thé</a></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+<div class="home" id="carte"><header class="home-head"><h2>La carte</h2><span class="rule"></span><p>Choisissez une catégorie ou faites défiler les plats.</p></header><section class="band band-banners" aria-labelledby="b-pain-gateau"><header class="band-head"><h2 id="b-pain-gateau">Pain et gâteau</h2><a class="band-go" href="#pain-gateau" aria-label="Ouvrir la catégorie Pain et gâteau">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Pain et gâteau"><a class="banner-card" href="#pain-gateau"><img src="img/banniere-boulangerie.jpg" alt="Boulangerie : des pains artisanaux au levain, préparés chaque jour" loading="lazy" decoding="async" draggable="false"></a><a class="banner-card" href="#pain-gateau"><img src="img/banniere-patisserie.jpg" alt="Pâtisserie : des créations gourmandes, préparées chaque jour" loading="lazy" decoding="async" draggable="false"></a></div></section><section class="band" aria-labelledby="b-petit-dejeuner"><header class="band-head"><h2 id="b-petit-dejeuner">Petit déjeuner</h2><a class="band-go" href="#petit-dejeuner" aria-label="Ouvrir la catégorie Petit déjeuner">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Petit déjeuner"><button type="button" class="chip" data-cat="petit-dejeuner" data-i="0" aria-label="Agrandir la photo : Manaïche au thon"><span class="chip-media"><img src="img/manaiche-thon.jpg" alt="Manaïche au thon" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Manaïche au thon</span><span class="chip-price"><i>dès</i><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="petit-dejeuner" data-i="1" aria-label="Agrandir la photo : Manaïche au fromage"><span class="chip-media"><img src="img/manaiche-fromage.jpg" alt="Manaïche au fromage" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Manaïche au fromage</span><span class="chip-price"><i>dès</i><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="petit-dejeuner" data-i="2" aria-label="Agrandir la photo : Manaïche à la viande"><span class="chip-media"><img src="img/manaiche-viande.jpg" alt="Manaïche à la viande" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Manaïche à la viande</span><span class="chip-price"><i>dès</i><b>2 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="petit-dejeuner" data-i="3" aria-label="Agrandir la photo : Manaïche zaatar"><span class="chip-media"><img src="img/manaiche-zaatar.jpg" alt="Manaïche zaatar" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Manaïche zaatar</span><span class="chip-price"><i>dès</i><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="petit-dejeuner" data-i="4" aria-label="Agrandir la photo : Manaïche aux légumes"><span class="chip-media"><img src="img/manaiche-legumes.jpg" alt="Manaïche aux légumes" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Manaïche aux légumes</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="petit-dejeuner" data-i="5" aria-label="Agrandir la photo : Omelette aux légumes"><span class="chip-media"><img src="img/omelette-legumes.jpg" alt="Omelette aux légumes" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Omelette aux légumes</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="petit-dejeuner" data-i="6" aria-label="Agrandir la photo : Omelette mixte et fromage"><span class="chip-media"><img src="img/omelette-fromage.jpg" alt="Omelette mixte et fromage" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Omelette mixte et fromage</span><span class="chip-price"><b>3 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="petit-dejeuner" data-i="7" aria-label="Agrandir la photo : Quaker au lait"><span class="chip-media"><img src="img/quaker-lait.jpg" alt="Quaker au lait" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Quaker au lait</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><a class="chip chip-more" href="#petit-dejeuner"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Petit déjeuner</span></span></a></div></section><section class="band" aria-labelledby="b-pizzas"><header class="band-head"><h2 id="b-pizzas">Pizzas</h2><a class="band-go" href="#pizzas" aria-label="Ouvrir la catégorie Pizzas">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Pizzas"><button type="button" class="chip" data-cat="pizzas" data-i="0" aria-label="Agrandir la photo : Pizza Royal"><span class="chip-media"><img src="img/pizza-royal.jpg" alt="Pizza Royal" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Royal</span><span class="chip-price"><i>dès</i><b>3 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="1" aria-label="Agrandir la photo : Pizza Végétarienne"><span class="chip-media"><img src="img/pizza-vegetarienne.jpg" alt="Pizza Végétarienne" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Végétarienne</span><span class="chip-price"><i>dès</i><b>3 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="2" aria-label="Agrandir la photo : Pizza Bolognaise"><span class="chip-media"><img src="img/pizza-bolognaise.jpg" alt="Pizza Bolognaise" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Bolognaise</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="3" aria-label="Agrandir la photo : Pizza Mexicaine"><span class="chip-media"><img src="img/pizza-mexicaine.jpg" alt="Pizza Mexicaine" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Mexicaine</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="4" aria-label="Agrandir la photo : Pizza 4 Saisons"><span class="chip-media"><img src="img/pizza-4-saisons.jpg" alt="Pizza 4 Saisons" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza 4 Saisons</span><span class="chip-price"><i>dès</i><b>5 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="5" aria-label="Agrandir la photo : Pizza Poulet"><span class="chip-media"><img src="img/pizza-poulet.jpg" alt="Pizza Poulet" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Poulet</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="6" aria-label="Agrandir la photo : Pizza Crevettes"><span class="chip-media"><img src="img/pizza-crevettes.jpg" alt="Pizza Crevettes" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Crevettes</span><span class="chip-price"><i>dès</i><b>5 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="7" aria-label="Agrandir la photo : Pizza Sojok"><span class="chip-media"><img src="img/pizza-sojok.jpg" alt="Pizza Sojok" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Sojok</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="8" aria-label="Agrandir la photo : Pizza Prince"><span class="chip-media"><img src="img/pizza-prince.jpg" alt="Pizza Prince" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Prince</span><span class="chip-price"><i>dès</i><b>6 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="9" aria-label="Agrandir la photo : Pizza Margherita"><span class="chip-media"><img src="img/pizza-margherita.jpg" alt="Pizza Margherita" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Margherita</span><span class="chip-price"><i>dès</i><b>3 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="pizzas" data-i="10" aria-label="Agrandir la photo : Pizza Crème fraîche"><span class="chip-media"><img src="img/pizza-creme-fraiche.jpg" alt="Pizza Crème fraîche" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Pizza Crème fraîche</span><span class="chip-price"><i>dès</i><b>6 000</b><small>F</small></span></span></button><a class="chip chip-more" href="#pizzas"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Pizzas</span></span></a></div></section><section class="band" aria-labelledby="b-poulets-poissons"><header class="band-head"><h2 id="b-poulets-poissons">Poulets et poissons</h2><a class="band-go" href="#poulets-poissons" aria-label="Ouvrir la catégorie Poulets et poissons">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Poulets et poissons"><button type="button" class="chip" data-cat="poulets-poissons" data-i="0" aria-label="Agrandir la photo : Poulet pané"><span class="chip-media"><img src="img/poulet-pane.jpg" alt="Poulet pané" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Poulet pané</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="poulets-poissons" data-i="1" aria-label="Agrandir la photo : Poulet rôti"><span class="chip-media"><img src="img/poulet-roti.jpg" alt="Poulet rôti" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Poulet rôti</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="poulets-poissons" data-i="2" aria-label="Agrandir la photo : Poulet grillé sauté"><span class="chip-media"><img src="img/poulet-saute-grille.jpg" alt="Poulet grillé sauté" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Poulet grillé sauté</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="poulets-poissons" data-i="3" aria-label="Agrandir la photo : Poulet kédjénou"><span class="chip-media"><img src="img/poulet-kedjenou.jpg" alt="Poulet kédjénou" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Poulet kédjénou</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="poulets-poissons" data-i="4" aria-label="Agrandir la photo : Poulet braisé"><span class="chip-media"><img src="img/poulet-braise.jpg" alt="Poulet braisé" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Poulet braisé</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="poulets-poissons" data-i="5" aria-label="Agrandir la photo : Poisson carpe braisé"><span class="chip-media"><img src="img/poisson-braise.jpg" alt="Poisson carpe braisé" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Poisson carpe braisé</span><span class="chip-price"><b>5 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="poulets-poissons" data-i="6" aria-label="Agrandir la photo : Poisson carpe en soupe"><span class="chip-media"><img src="img/poisson-soupe.jpg" alt="Poisson carpe en soupe" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Poisson carpe en soupe</span><span class="chip-price"><b>5 000</b><small>F</small></span></span></button><a class="chip chip-more" href="#poulets-poissons"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Poulets et poissons</span></span></a></div></section><section class="band" aria-labelledby="b-sandwichs"><header class="band-head"><h2 id="b-sandwichs">Sandwichs</h2><a class="band-go" href="#sandwichs" aria-label="Ouvrir la catégorie Sandwichs">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Sandwichs"><button type="button" class="chip" data-cat="sandwichs" data-i="0" aria-label="Agrandir la photo : Sandwich Francisco"><span class="chip-media"><img src="img/sandwich-francisco.jpg" alt="Sandwich Francisco" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich Francisco</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="1" aria-label="Agrandir la photo : Sandwich Philadelphie"><span class="chip-media"><img src="img/sandwich-philadelphie.jpg" alt="Sandwich Philadelphie" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich Philadelphie</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="2" aria-label="Agrandir la photo : Sandwich Taouk"><span class="chip-media"><img src="img/sandwich-taouk.jpg" alt="Sandwich Taouk" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich Taouk</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="3" aria-label="Agrandir la photo : Sandwich Fahita"><span class="chip-media"><img src="img/sandwich-fahita.jpg" alt="Sandwich Fahita" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich Fahita</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="4" aria-label="Agrandir la photo : Sandwich Takoss"><span class="chip-media"><img src="img/sandwich-takoss.jpg" alt="Sandwich Takoss" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich Takoss</span><span class="chip-price"><b>3 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="5" aria-label="Agrandir la photo : Sandwich Crispy"><span class="chip-media"><img src="img/sandwich-crispy.jpg" alt="Sandwich Crispy" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich Crispy</span><span class="chip-price"><b>3 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="6" aria-label="Agrandir la photo : Sandwich au poulet"><span class="chip-media"><img src="img/sandwich-poulet.jpg" alt="Sandwich au poulet" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich au poulet</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="7" aria-label="Agrandir la photo : Sandwich à la viande"><span class="chip-media"><img src="img/sandwich-viande.jpg" alt="Sandwich à la viande" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich à la viande</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="sandwichs" data-i="8" aria-label="Agrandir la photo : Sandwich au thon"><span class="chip-media"><img src="img/sandwich-thon.jpg" alt="Sandwich au thon" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Sandwich au thon</span><span class="chip-price"><b>2 000</b><small>F</small></span></span></button><a class="chip chip-more" href="#sandwichs"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Sandwichs</span></span></a></div></section><section class="band" aria-labelledby="b-crepes"><header class="band-head"><h2 id="b-crepes">Crêpes</h2><a class="band-go" href="#crepes" aria-label="Ouvrir la catégorie Crêpes">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Crêpes"><button type="button" class="chip" data-cat="crepes" data-i="0" aria-label="Agrandir la photo : Crêpe au chocolat"><span class="chip-media"><img src="img/crepe-chocolat.jpg" alt="Crêpe au chocolat" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Crêpe au chocolat</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><a class="chip chip-more" href="#crepes"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Crêpes</span></span></a></div></section><section class="band" aria-labelledby="b-spaghettis"><header class="band-head"><h2 id="b-spaghettis">Spaghettis</h2><a class="band-go" href="#spaghettis" aria-label="Ouvrir la catégorie Spaghettis">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Spaghettis"><button type="button" class="chip" data-cat="spaghettis" data-i="0" aria-label="Agrandir la photo : Spaghetti Bolognaise"><span class="chip-media"><img src="img/spaghetti-bolognaise.jpg" alt="Spaghetti Bolognaise" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Spaghetti Bolognaise</span><span class="chip-price"><b>4 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="spaghettis" data-i="1" aria-label="Agrandir la photo : Spaghetti Alfredo"><span class="chip-media"><img src="img/spaghetti-alfredo.jpg" alt="Spaghetti Alfredo" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Spaghetti Alfredo</span><span class="chip-price"><b>5 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="spaghettis" data-i="2" aria-label="Agrandir la photo : Spaghetti Nature"><span class="chip-media"><img src="img/spaghetti-nature.jpg" alt="Spaghetti Nature" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Spaghetti Nature</span><span class="chip-price"><b>2 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="spaghettis" data-i="3" aria-label="Agrandir la photo : Spaghetti boulettes de viande"><span class="chip-media"><img src="img/spaghetti-boulettes.jpg" alt="Spaghetti boulettes de viande" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Spaghetti boulettes de viande</span><span class="chip-price"><b>3 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="spaghettis" data-i="4" aria-label="Agrandir la photo : Spaghetti au poulet"><span class="chip-media"><img src="img/spaghetti-poulet.jpg" alt="Spaghetti au poulet" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Spaghetti au poulet</span><span class="chip-price"><i>dès</i><b>4 000</b><small>F</small></span></span></button><a class="chip chip-more" href="#spaghettis"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Spaghettis</span></span></a></div></section><section class="band" aria-labelledby="b-boissons"><header class="band-head"><h2 id="b-boissons">Sucreries et boissons</h2><a class="band-go" href="#boissons" aria-label="Ouvrir la catégorie Sucreries et boissons">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Sucreries et boissons"><button type="button" class="chip" data-cat="boissons" data-i="0" aria-label="Agrandir la photo : Coca-Cola"><span class="chip-media"><img src="img/coca-cola.jpg" alt="Coca-Cola" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Coca-Cola</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="boissons" data-i="1" aria-label="Agrandir la photo : Frisco"><span class="chip-media"><img src="img/frisco.jpg" alt="Frisco" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Frisco</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="boissons" data-i="2" aria-label="Agrandir la photo : Rhino"><span class="chip-media"><img src="img/rhino.jpg" alt="Rhino" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Rhino</span><span class="chip-price"><b>600</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="boissons" data-i="3" aria-label="Agrandir la photo : Cody&#x27;s Energy"><span class="chip-media"><img src="img/codys.jpg" alt="Cody&#x27;s Energy" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Cody&#x27;s Energy</span><span class="chip-price"><b>700</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="boissons" data-i="4" aria-label="Agrandir la photo : Présséa 100 %"><span class="chip-media"><img src="img/pressea-100.jpg" alt="Présséa 100 %" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Présséa 100 %</span><span class="chip-price"><b>2 000</b><small>F</small></span></span></button><a class="chip chip-more" href="#boissons"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Sucreries et boissons</span></span></a></div></section><section class="band" aria-labelledby="b-jus"><header class="band-head"><h2 id="b-jus">Jus nature et limonades</h2><a class="band-go" href="#jus" aria-label="Ouvrir la catégorie Jus nature et limonades">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Jus nature et limonades"><button type="button" class="chip" data-cat="jus" data-i="0" aria-label="Agrandir la photo : Jus d&#x27;orange"><span class="chip-media"><img src="img/jus-orange.jpg" alt="Jus d&#x27;orange" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jus d&#x27;orange</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="1" aria-label="Agrandir la photo : Jus de citron"><span class="chip-media"><img src="img/jus-citron.jpg" alt="Jus de citron" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jus de citron</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="2" aria-label="Agrandir la photo : Jus d&#x27;ananas"><span class="chip-media"><img src="img/jus-ananas.jpg" alt="Jus d&#x27;ananas" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jus d&#x27;ananas</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="3" aria-label="Agrandir la photo : Jus de carotte"><span class="chip-media"><img src="img/jus-carotte.jpg" alt="Jus de carotte" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jus de carotte</span><span class="chip-price"><b>2 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="4" aria-label="Agrandir la photo : Jus de pamplemousse"><span class="chip-media"><img src="img/jus-pamplemousse.jpg" alt="Jus de pamplemousse" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jus de pamplemousse</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="5" aria-label="Agrandir la photo : Jus de passion"><span class="chip-media"><img src="img/jus-passion.jpg" alt="Jus de passion" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jus de passion</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="6" aria-label="Agrandir la photo : Jus de mangue"><span class="chip-media"><img src="img/jus-mangue.jpg" alt="Jus de mangue" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jus de mangue</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="7" aria-label="Agrandir la photo : Limonade citron"><span class="chip-media"><img src="img/limonade-citron.jpg" alt="Limonade citron" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Limonade citron</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="jus" data-i="8" aria-label="Agrandir la photo : Limonade menthe"><span class="chip-media"><img src="img/limonade-menthe-fraiche.jpg" alt="Limonade menthe" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Limonade menthe</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><a class="chip chip-more" href="#jus"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Jus nature et limonades</span></span></a></div></section><section class="band" aria-labelledby="b-desserts"><header class="band-head"><h2 id="b-desserts">Desserts</h2><a class="band-go" href="#desserts" aria-label="Ouvrir la catégorie Desserts">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Desserts"><button type="button" class="chip" data-cat="desserts" data-i="0" aria-label="Agrandir la photo : Boule de glace"><span class="chip-media"><img src="img/boule-de-glace.jpg" alt="Boule de glace" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Boule de glace</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="1" aria-label="Agrandir la photo : Barbe à papa"><span class="chip-media"><img src="img/barbe-a-papa.jpg" alt="Barbe à papa" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Barbe à papa</span><span class="chip-price"><i>dès</i><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="2" aria-label="Agrandir la photo : Moka"><span class="chip-media"><img src="img/moka.jpg" alt="Moka" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Moka</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="3" aria-label="Agrandir la photo : Jello"><span class="chip-media"><img src="img/jello.jpg" alt="Jello" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Jello</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="4" aria-label="Agrandir la photo : Milk-shake"><span class="chip-media"><img src="img/milkshake.jpg" alt="Milk-shake" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Milk-shake</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="5" aria-label="Agrandir la photo : Milk-shake fraise"><span class="chip-media"><img src="img/milkshake-fraise.jpg" alt="Milk-shake fraise" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Milk-shake fraise</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="6" aria-label="Agrandir la photo : Salade de fruits"><span class="chip-media"><img src="img/salade-fruits.jpg" alt="Salade de fruits" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Salade de fruits</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="7" aria-label="Agrandir la photo : Dêguê"><span class="chip-media"><img src="img/degue.jpg" alt="Dêguê" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Dêguê</span><span class="chip-price"><b>700</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="desserts" data-i="8" aria-label="Agrandir la photo : Lait Dano"><span class="chip-media"><img src="img/lait-dano.jpg" alt="Lait Dano" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Lait Dano</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><a class="chip chip-more" href="#desserts"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Desserts</span></span></a></div></section><section class="band" aria-labelledby="b-cafe-the"><header class="band-head"><h2 id="b-cafe-the">Café, thé et eau</h2><a class="band-go" href="#cafe-the" aria-label="Ouvrir la catégorie Café, thé et eau">Voir tout</a></header><div class="band-row" tabindex="0" role="group" aria-label="Café, thé et eau"><button type="button" class="chip" data-cat="cafe-the" data-i="0" aria-label="Agrandir la photo : Café au lait"><span class="chip-media"><img src="img/cafe-au-lait.jpg" alt="Café au lait" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Café au lait</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="1" aria-label="Agrandir la photo : Lait chaud"><span class="chip-media"><img src="img/lait-chaud.jpg" alt="Lait chaud" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Lait chaud</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="2" aria-label="Agrandir la photo : Chocolat chaud"><span class="chip-media"><img src="img/chocolat-chaud.jpg" alt="Chocolat chaud" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Chocolat chaud</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="3" aria-label="Agrandir la photo : Café libanais"><span class="chip-media"><img src="img/cafe-libanais.jpg" alt="Café libanais" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Café libanais</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="4" aria-label="Agrandir la photo : Café expresso"><span class="chip-media"><img src="img/cafe-expresso.jpg" alt="Café expresso" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Café expresso</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="5" aria-label="Agrandir la photo : Café moulu"><span class="chip-media"><img src="img/cafe-moulu.jpg" alt="Café moulu" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Café moulu</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="6" aria-label="Agrandir la photo : Cappuccino"><span class="chip-media"><img src="img/cappuccino.jpg" alt="Cappuccino" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Cappuccino</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="7" aria-label="Agrandir la photo : Nescafé"><span class="chip-media"><img src="img/nescafe.jpg" alt="Nescafé" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Nescafé</span><span class="chip-price"><b>500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="8" aria-label="Agrandir la photo : Thé au gingembre"><span class="chip-media"><img src="img/the-gingembre.jpg" alt="Thé au gingembre" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Thé au gingembre</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="9" aria-label="Agrandir la photo : Thé gingembre au miel"><span class="chip-media"><img src="img/the-gingembre-miel.jpg" alt="Thé gingembre au miel" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Thé gingembre au miel</span><span class="chip-price"><b>1 500</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="10" aria-label="Agrandir la photo : Thé Lipton"><span class="chip-media"><img src="img/the-lipton.jpg" alt="Thé Lipton" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Thé Lipton</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="11" aria-label="Agrandir la photo : Thé vert"><span class="chip-media"><img src="img/the-vert.jpg" alt="Thé vert" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Thé vert</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="12" aria-label="Agrandir la photo : Eau Céleste, petite"><span class="chip-media"><img src="img/eau-celeste-petite.jpg" alt="Eau Céleste, petite" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Eau Céleste, petite</span><span class="chip-price"><b>200</b><small>F</small></span></span></button><button type="button" class="chip" data-cat="cafe-the" data-i="13" aria-label="Agrandir la photo : Eau Céleste, grande"><span class="chip-media"><img src="img/eau-celeste.jpg" alt="Eau Céleste, grande" loading="lazy" decoding="async" draggable="false"></span><span class="chip-body"><span class="chip-name">Eau Céleste, grande</span><span class="chip-price"><b>1 000</b><small>F</small></span></span></button><a class="chip chip-more" href="#cafe-the"><span class="chip-more-in"><b>Voir toute la catégorie</b><span>Café, thé et eau</span></span></a></div></section></div><section class="cat" id="pain-gateau"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Pain et gâteau</h2><span class="rule"></span></header><div class="banners"><figure class="banner"><img src="img/banniere-boulangerie.jpg" alt="Boulangerie : des pains artisanaux au levain, préparés chaque jour" loading="lazy" decoding="async" draggable="false"></figure><figure class="banner"><img src="img/banniere-patisserie.jpg" alt="Pâtisserie : des créations gourmandes, préparées chaque jour" loading="lazy" decoding="async" draggable="false"></figure></div></section><section class="cat gal" id="petit-dejeuner"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Petit déjeuner</h2><span class="rule"></span><p>P petit · G grand</p></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Petit déjeuner"><button type="button" class="shot" aria-label="Agrandir la photo : Manaïche au thon"><span class="shot-media"><img src="img/manaiche-thon.jpg" alt="Manaïche au thon" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Manaïche au thon</span></span><span class="prices"><span class="pr"><i>P</i><b>1 500<small>F</small></b></span><span class="pr"><i>G</i><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Manaïche au fromage"><span class="shot-media"><img src="img/manaiche-fromage.jpg" alt="Manaïche au fromage" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Manaïche au fromage</span></span><span class="prices"><span class="pr"><i>P</i><b>1 500<small>F</small></b></span><span class="pr"><i>G</i><b>2 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Manaïche à la viande"><span class="shot-media"><img src="img/manaiche-viande.jpg" alt="Manaïche à la viande" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Manaïche à la viande</span></span><span class="prices"><span class="pr"><i>P</i><b>2 000<small>F</small></b></span><span class="pr"><i>G</i><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Manaïche zaatar"><span class="shot-media"><img src="img/manaiche-zaatar.jpg" alt="Manaïche zaatar" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Manaïche zaatar</span></span><span class="prices"><span class="pr"><i>P</i><b>500<small>F</small></b></span><span class="pr"><i>G</i><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Manaïche aux légumes"><span class="shot-media"><img src="img/manaiche-legumes.jpg" alt="Manaïche aux légumes" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Manaïche aux légumes</span></span><span class="prices"><span class="pr" aria-hidden="true"></span><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Omelette aux légumes"><span class="shot-media"><img src="img/omelette-legumes.jpg" alt="Omelette aux légumes" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Omelette aux légumes</span></span><span class="prices"><span class="pr" aria-hidden="true"></span><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Omelette mixte et fromage"><span class="shot-media"><img src="img/omelette-fromage.jpg" alt="Omelette mixte et fromage" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Omelette mixte et fromage</span></span><span class="prices"><span class="pr" aria-hidden="true"></span><span class="pr"><b>3 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Quaker au lait"><span class="shot-media"><img src="img/quaker-lait.jpg" alt="Quaker au lait" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Quaker au lait</span></span><span class="prices"><span class="pr" aria-hidden="true"></span><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div></section><section class="cat gal" id="pizzas"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Pizzas</h2><span class="rule"></span><p>P petite · M moyenne · G grande</p></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Pizzas"><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Royal"><span class="shot-media"><img src="img/pizza-royal.jpg" alt="Pizza Royal" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Royal</span><span class="shot-desc">Jambon, champignon, olive, fromage</span></span><span class="prices"><span class="pr"><i>P</i><b>3 500<small>F</small></b></span><span class="pr"><i>M</i><b>5 000<small>F</small></b></span><span class="pr"><i>G</i><b>7 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Végétarienne"><span class="shot-media"><img src="img/pizza-vegetarienne.jpg" alt="Pizza Végétarienne" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Végétarienne</span><span class="shot-desc">Oignon, maïs, poivron, olive</span></span><span class="prices"><span class="pr"><i>P</i><b>3 500<small>F</small></b></span><span class="pr"><i>M</i><b>5 000<small>F</small></b></span><span class="pr"><i>G</i><b>7 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Bolognaise"><span class="shot-media"><img src="img/pizza-bolognaise.jpg" alt="Pizza Bolognaise" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Bolognaise</span><span class="shot-desc">Viande hachée, sauce tomate, fromage</span></span><span class="prices"><span class="pr"><i>P</i><b>4 000<small>F</small></b></span><span class="pr"><i>M</i><b>6 000<small>F</small></b></span><span class="pr"><i>G</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Mexicaine"><span class="shot-media"><img src="img/pizza-mexicaine.jpg" alt="Pizza Mexicaine" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Mexicaine</span><span class="shot-desc">Fromage, saucisse, viande hachée</span></span><span class="prices"><span class="pr"><i>P</i><b>4 000<small>F</small></b></span><span class="pr"><i>M</i><b>6 000<small>F</small></b></span><span class="pr"><i>G</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza 4 Saisons"><span class="shot-media"><img src="img/pizza-4-saisons.jpg" alt="Pizza 4 Saisons" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza 4 Saisons</span><span class="shot-desc">Jambon, thon, crevettes, viande</span></span><span class="prices"><span class="pr"><i>P</i><b>5 000<small>F</small></b></span><span class="pr"><i>M</i><b>7 000<small>F</small></b></span><span class="pr"><i>G</i><b>9 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Poulet"><span class="shot-media"><img src="img/pizza-poulet.jpg" alt="Pizza Poulet" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Poulet</span><span class="shot-desc">Fromage, poulet, olives</span></span><span class="prices"><span class="pr"><i>P</i><b>4 000<small>F</small></b></span><span class="pr"><i>M</i><b>6 000<small>F</small></b></span><span class="pr"><i>G</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Crevettes"><span class="shot-media"><img src="img/pizza-crevettes.jpg" alt="Pizza Crevettes" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Crevettes</span><span class="shot-desc">Fromage, crevettes</span></span><span class="prices"><span class="pr"><i>P</i><b>5 000<small>F</small></b></span><span class="pr"><i>M</i><b>7 000<small>F</small></b></span><span class="pr"><i>G</i><b>9 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Sojok"><span class="shot-media"><img src="img/pizza-sojok.jpg" alt="Pizza Sojok" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Sojok</span><span class="shot-desc">Mozzarella, cheddar, emmental, gruyère</span></span><span class="prices"><span class="pr"><i>P</i><b>4 000<small>F</small></b></span><span class="pr"><i>M</i><b>5 000<small>F</small></b></span><span class="pr"><i>G</i><b>7 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Prince"><span class="shot-media"><img src="img/pizza-prince.jpg" alt="Pizza Prince" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Prince</span><span class="shot-desc">Jambon, saucisse, thon, crevettes, poulet</span></span><span class="prices"><span class="pr"><i>P</i><b>6 000<small>F</small></b></span><span class="pr"><i>M</i><b>8 000<small>F</small></b></span><span class="pr"><i>G</i><b>10 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Margherita"><span class="shot-media"><img src="img/pizza-margherita.jpg" alt="Pizza Margherita" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Margherita</span></span><span class="prices"><span class="pr"><i>P</i><b>3 000<small>F</small></b></span><span class="pr"><i>M</i><b>4 000<small>F</small></b></span><span class="pr"><i>G</i><b>5 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Pizza Crème fraîche"><span class="shot-media"><img src="img/pizza-creme-fraiche.jpg" alt="Pizza Crème fraîche" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Pizza Crème fraîche</span></span><span class="prices"><span class="pr" aria-hidden="true"><i>P</i><b>&nbsp;</b></span><span class="pr"><i>M</i><b>6 000<small>F</small></b></span><span class="pr"><i>G</i><b>10 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div></section><section class="cat gal" id="poulets-poissons"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Poulets et poissons</h2><span class="rule"></span><p>Demi ou entier</p></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Poulets et poissons"><button type="button" class="shot" aria-label="Agrandir la photo : Poulet pané"><span class="shot-media"><img src="img/poulet-pane.jpg" alt="Poulet pané" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Poulet pané</span></span><span class="prices"><span class="pr"><i>1/2</i><b>4 000<small>F</small></b></span><span class="pr"><i>Entier</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Poulet rôti"><span class="shot-media"><img src="img/poulet-roti.jpg" alt="Poulet rôti" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Poulet rôti</span></span><span class="prices"><span class="pr"><i>1/2</i><b>4 000<small>F</small></b></span><span class="pr"><i>Entier</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Poulet grillé sauté"><span class="shot-media"><img src="img/poulet-saute-grille.jpg" alt="Poulet grillé sauté" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Poulet grillé sauté</span></span><span class="prices"><span class="pr"><i>1/2</i><b>4 000<small>F</small></b></span><span class="pr"><i>Entier</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Poulet kédjénou"><span class="shot-media"><img src="img/poulet-kedjenou.jpg" alt="Poulet kédjénou" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Poulet kédjénou</span></span><span class="prices"><span class="pr"><i>1/2</i><b>4 000<small>F</small></b></span><span class="pr"><i>Entier</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Poulet braisé"><span class="shot-media"><img src="img/poulet-braise.jpg" alt="Poulet braisé" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Poulet braisé</span></span><span class="prices"><span class="pr"><i>1/2</i><b>4 000<small>F</small></b></span><span class="pr"><i>Entier</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Poisson carpe braisé"><span class="shot-media"><img src="img/poisson-braise.jpg" alt="Poisson carpe braisé" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Poisson carpe braisé</span></span><span class="prices"><span class="pr" aria-hidden="true"></span><span class="pr"><b>5 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Poisson carpe en soupe"><span class="shot-media"><img src="img/poisson-soupe.jpg" alt="Poisson carpe en soupe" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Poisson carpe en soupe</span></span><span class="prices"><span class="pr" aria-hidden="true"></span><span class="pr"><b>5 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div><div class="also below"><p class="also-title">Et aussi</p><ul class="dishes cols"><li class="dish multi"><div class="dish-main"><h3>Poisson carpe grillé</h3></div><div class="prices"><span class="pr" aria-hidden="true"></span><span class="pr"><b>5 000<small>F</small></b></span></div></li></ul></div></section><section class="cat gal" id="sandwichs"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Sandwichs</h2><span class="rule"></span></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Sandwichs"><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich Francisco"><span class="shot-media"><img src="img/sandwich-francisco.jpg" alt="Sandwich Francisco" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich Francisco</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich Philadelphie"><span class="shot-media"><img src="img/sandwich-philadelphie.jpg" alt="Sandwich Philadelphie" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich Philadelphie</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich Taouk"><span class="shot-media"><img src="img/sandwich-taouk.jpg" alt="Sandwich Taouk" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich Taouk</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich Fahita"><span class="shot-media"><img src="img/sandwich-fahita.jpg" alt="Sandwich Fahita" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich Fahita</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich Takoss"><span class="shot-media"><img src="img/sandwich-takoss.jpg" alt="Sandwich Takoss" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich Takoss</span></span><span class="prices"><span class="pr"><b>3 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich Crispy"><span class="shot-media"><img src="img/sandwich-crispy.jpg" alt="Sandwich Crispy" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich Crispy</span></span><span class="prices"><span class="pr"><b>3 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich au poulet"><span class="shot-media"><img src="img/sandwich-poulet.jpg" alt="Sandwich au poulet" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich au poulet</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich à la viande"><span class="shot-media"><img src="img/sandwich-viande.jpg" alt="Sandwich à la viande" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich à la viande</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Sandwich au thon"><span class="shot-media"><img src="img/sandwich-thon.jpg" alt="Sandwich au thon" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Sandwich au thon</span></span><span class="prices"><span class="pr"><b>2 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div></section><section class="cat gal" id="crepes"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Crêpes</h2><span class="rule"></span></header><div class="slider single"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Crêpes"><button type="button" class="shot" aria-label="Agrandir la photo : Crêpe au chocolat"><span class="shot-media"><img src="img/crepe-chocolat.jpg" alt="Crêpe au chocolat" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Crêpe au chocolat</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div></section><section class="cat gal" id="spaghettis"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Spaghettis</h2><span class="rule"></span></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Spaghettis"><button type="button" class="shot" aria-label="Agrandir la photo : Spaghetti Bolognaise"><span class="shot-media"><img src="img/spaghetti-bolognaise.jpg" alt="Spaghetti Bolognaise" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Spaghetti Bolognaise</span><span class="shot-desc">Viande hachée, fromage, sauce tomate</span></span><span class="prices"><span class="pr"><b>4 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Spaghetti Alfredo"><span class="shot-media"><img src="img/spaghetti-alfredo.jpg" alt="Spaghetti Alfredo" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Spaghetti Alfredo</span><span class="shot-desc">Crème fraîche, champignon</span></span><span class="prices"><span class="pr"><b>5 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Spaghetti Nature"><span class="shot-media"><img src="img/spaghetti-nature.jpg" alt="Spaghetti Nature" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Spaghetti Nature</span><span class="shot-desc">Sauce tomate, légumes, rognon ou foie</span></span><span class="prices"><span class="pr"><b>2 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Spaghetti boulettes de viande"><span class="shot-media"><img src="img/spaghetti-boulettes.jpg" alt="Spaghetti boulettes de viande" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Spaghetti boulettes de viande</span></span><span class="prices"><span class="pr"><b>3 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Spaghetti au poulet"><span class="shot-media"><img src="img/spaghetti-poulet.jpg" alt="Spaghetti au poulet" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Spaghetti au poulet</span></span><span class="prices"><span class="pr"><i>1/2</i><b>4 000<small>F</small></b></span><span class="pr"><i>1</i><b>8 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div></section><section class="cat gal" id="boissons"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Sucreries et boissons</h2><span class="rule"></span></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Sucreries et boissons"><button type="button" class="shot" aria-label="Agrandir la photo : Coca-Cola"><span class="shot-media"><img src="img/coca-cola.jpg" alt="Coca-Cola" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Coca-Cola</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Frisco"><span class="shot-media"><img src="img/frisco.jpg" alt="Frisco" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Frisco</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Rhino"><span class="shot-media"><img src="img/rhino.jpg" alt="Rhino" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Rhino</span></span><span class="prices"><span class="pr"><b>600<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Cody&#x27;s Energy"><span class="shot-media"><img src="img/codys.jpg" alt="Cody&#x27;s Energy" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Cody&#x27;s Energy</span></span><span class="prices"><span class="pr"><b>700<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Présséa 100 %"><span class="shot-media"><img src="img/pressea-100.jpg" alt="Présséa 100 %" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Présséa 100 %</span></span><span class="prices"><span class="pr"><b>2 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div><div class="also below"><p class="also-title">Et aussi</p><ul class="dishes cols"><li class="dish"><div class="dish-main"><h3>Fanta</h3></div><div class="prices"><span class="pr"><b>500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Sprite</h3></div><div class="prices"><span class="pr"><b>500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Pepsi</h3></div><div class="prices"><span class="pr"><b>500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Youki pomme</h3></div><div class="prices"><span class="pr"><b>500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Youki café</h3></div><div class="prices"><span class="pr"><b>500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Youki orange</h3></div><div class="prices"><span class="pr"><b>500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Youzou</h3></div><div class="prices"><span class="pr"><b>500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Orangina</h3></div><div class="prices"><span class="pr"><b>700<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Ivorio</h3></div><div class="prices"><span class="pr"><b>700<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Bavaria</h3></div><div class="prices"><span class="pr"><b>1 000<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Grenadine Energie</h3></div><div class="prices"><span class="pr"><b>1 000<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Mini Présséa</h3></div><div class="prices"><span class="pr"><b>250<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Présséa</h3></div><div class="prices"><span class="pr"><b>1 500<small>F</small></b></span></div></li><li class="dish"><div class="dish-main"><h3>Champagne</h3></div><div class="prices"><span class="pr"><b>3 000<small>F</small></b></span></div></li></ul></div></section><section class="cat gal" id="jus"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Jus nature et limonades</h2><span class="rule"></span></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Jus nature et limonades"><button type="button" class="shot" aria-label="Agrandir la photo : Jus d&#x27;orange"><span class="shot-media"><img src="img/jus-orange.jpg" alt="Jus d&#x27;orange" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jus d&#x27;orange</span></span><span class="prices"><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Jus de citron"><span class="shot-media"><img src="img/jus-citron.jpg" alt="Jus de citron" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jus de citron</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Jus d&#x27;ananas"><span class="shot-media"><img src="img/jus-ananas.jpg" alt="Jus d&#x27;ananas" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jus d&#x27;ananas</span></span><span class="prices"><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Jus de carotte"><span class="shot-media"><img src="img/jus-carotte.jpg" alt="Jus de carotte" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jus de carotte</span></span><span class="prices"><span class="pr"><b>2 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Jus de pamplemousse"><span class="shot-media"><img src="img/jus-pamplemousse.jpg" alt="Jus de pamplemousse" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jus de pamplemousse</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Jus de passion"><span class="shot-media"><img src="img/jus-passion.jpg" alt="Jus de passion" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jus de passion</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Jus de mangue"><span class="shot-media"><img src="img/jus-mangue.jpg" alt="Jus de mangue" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jus de mangue</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Limonade citron"><span class="shot-media"><img src="img/limonade-citron.jpg" alt="Limonade citron" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Limonade citron</span></span><span class="prices"><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Limonade menthe"><span class="shot-media"><img src="img/limonade-menthe-fraiche.jpg" alt="Limonade menthe" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Limonade menthe</span></span><span class="prices"><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div><div class="also below"><p class="also-title">Et aussi</p><ul class="dishes cols"><li class="dish"><div class="dish-main"><h3>Jus cocktail lait baman</h3></div><div class="prices"><span class="pr"><b>2 000 / 2 500<small>F</small></b></span></div></li></ul></div></section><section class="cat gal" id="desserts"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Desserts</h2><span class="rule"></span></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Desserts"><button type="button" class="shot" aria-label="Agrandir la photo : Boule de glace"><span class="shot-media"><img src="img/boule-de-glace.jpg" alt="Boule de glace" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Boule de glace</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Barbe à papa"><span class="shot-media"><img src="img/barbe-a-papa.jpg" alt="Barbe à papa" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Barbe à papa</span></span><span class="prices"><span class="pr"><b>500 / 1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Moka"><span class="shot-media"><img src="img/moka.jpg" alt="Moka" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Moka</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Jello"><span class="shot-media"><img src="img/jello.jpg" alt="Jello" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Jello</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Milk-shake"><span class="shot-media"><img src="img/milkshake.jpg" alt="Milk-shake" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Milk-shake</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Milk-shake fraise"><span class="shot-media"><img src="img/milkshake-fraise.jpg" alt="Milk-shake fraise" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Milk-shake fraise</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Salade de fruits"><span class="shot-media"><img src="img/salade-fruits.jpg" alt="Salade de fruits" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Salade de fruits</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Dêguê"><span class="shot-media"><img src="img/degue.jpg" alt="Dêguê" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Dêguê</span></span><span class="prices"><span class="pr"><b>700<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Lait Dano"><span class="shot-media"><img src="img/lait-dano.jpg" alt="Lait Dano" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Lait Dano</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div></section><section class="cat gal" id="cafe-the"><header class="cat-head"><a class="back" href="#carte">Toute la carte</a><h2>Café, thé et eau</h2><span class="rule"></span></header><div class="slider"><div class="track" tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Photos : Café, thé et eau"><button type="button" class="shot" aria-label="Agrandir la photo : Café au lait"><span class="shot-media"><img src="img/cafe-au-lait.jpg" alt="Café au lait" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Café au lait</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Lait chaud"><span class="shot-media"><img src="img/lait-chaud.jpg" alt="Lait chaud" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Lait chaud</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Chocolat chaud"><span class="shot-media"><img src="img/chocolat-chaud.jpg" alt="Chocolat chaud" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Chocolat chaud</span></span><span class="prices"><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Café libanais"><span class="shot-media"><img src="img/cafe-libanais.jpg" alt="Café libanais" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Café libanais</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Café expresso"><span class="shot-media"><img src="img/cafe-expresso.jpg" alt="Café expresso" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Café expresso</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Café moulu"><span class="shot-media"><img src="img/cafe-moulu.jpg" alt="Café moulu" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Café moulu</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Cappuccino"><span class="shot-media"><img src="img/cappuccino.jpg" alt="Cappuccino" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Cappuccino</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Nescafé"><span class="shot-media"><img src="img/nescafe.jpg" alt="Nescafé" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Nescafé</span></span><span class="prices"><span class="pr"><b>500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Thé au gingembre"><span class="shot-media"><img src="img/the-gingembre.jpg" alt="Thé au gingembre" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Thé au gingembre</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Thé gingembre au miel"><span class="shot-media"><img src="img/the-gingembre-miel.jpg" alt="Thé gingembre au miel" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Thé gingembre au miel</span></span><span class="prices"><span class="pr"><b>1 500<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Thé Lipton"><span class="shot-media"><img src="img/the-lipton.jpg" alt="Thé Lipton" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Thé Lipton</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Thé vert"><span class="shot-media"><img src="img/the-vert.jpg" alt="Thé vert" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Thé vert</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Eau Céleste, petite"><span class="shot-media"><img src="img/eau-celeste-petite.jpg" alt="Eau Céleste, petite" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Eau Céleste, petite</span></span><span class="prices"><span class="pr"><b>200<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button><button type="button" class="shot" aria-label="Agrandir la photo : Eau Céleste, grande"><span class="shot-media"><img src="img/eau-celeste.jpg" alt="Eau Céleste, grande" loading="lazy" decoding="async" draggable="false"></span><span class="shot-cap"><span class="shot-text"><span class="shot-name">Eau Céleste, grande</span></span><span class="prices"><span class="pr"><b>1 000<small>F</small></b></span></span></span><span class="shot-zoom" aria-hidden="true">Agrandir</span></button></div><div class="slider-bar"><div class="slider-progress"><span></span></div><span class="slider-count" aria-hidden="true"></span><div class="slider-nav"><button type="button" class="lb-btn sl-prev">Précédent</button><button type="button" class="lb-btn sl-next">Suivant</button></div></div></div></section>
+  </div>
+</main>
+
+<div class="harlequin" aria-hidden="true"></div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <img src="img/logo.png" alt="" width="76" height="76">
+      <div>
+        <strong>Boulangerie Prince</strong>
+        <span>Feu de Kennedy et Lobia Carrefour Badaba, Daloa</span>
+      </div>
+    </div>
+    <div class="foot-resa">
+      <b>Réservation</b>
+      <a href="tel:+2250711291708">07 11 29 17 08</a><br>
+      <a href="tel:+2250798605050">07 98 60 50 50</a>
+    </div>
+    <p class="foot-note">Prix en francs CFA (F). Restaurant, pâtisserie, viennoiserie, glacier.</p>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo du plat" hidden>
+  <img class="lb-bg" alt="" aria-hidden="true">
+  <div class="lb-top">
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-btn lb-close">Fermer</button>
+  </div>
+  <div class="lb-stage"><img class="lb-img" alt=""></div>
+  <div class="lb-cap">
+    <div class="lb-info">
+      <div>
+        <div class="lb-title"></div>
+        <p class="lb-desc"></p>
+      </div>
+      <div class="prices lb-prices"></div>
+    </div>
+    <div class="lb-nav">
+      <button type="button" class="lb-btn lb-prev">Précédent</button>
+      <button type="button" class="lb-btn lb-next">Suivant</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
+
+  /* ---- Catégories : un clic sur un onglet ouvre la catégorie (menu + photos) ---- */
+  var tabs = [].slice.call(document.querySelectorAll('.tabs a'));
+  var secs = [].slice.call(document.querySelectorAll('.cat'));
+  var homeEl = document.getElementById('carte');
+  var byId = {};
+  secs.forEach(function (s) { byId[s.id] = s; });
+  if (homeEl) byId.carte = homeEl;
+  var current = null, homeY = null;
+  function openCat(id, opts) {
+    opts = opts || {};
+    if (!byId[id]) return false;
+    var changed = current !== id;
+    if (changed && current === 'carte') homeY = window.pageYOffset;
+    current = id;
+    secs.forEach(function (s) { s.hidden = s.id !== id; });
+    if (homeEl) homeEl.hidden = id !== 'carte';
+    tabs.forEach(function (a) {
+      var on = a.getAttribute('href') === '#' + id;
+      if (on) { a.setAttribute('aria-current', 'true'); } else { a.removeAttribute('aria-current'); }
+      if (on) {
+        var box = a.parentNode;
+        box.scrollTo({ left: a.offsetLeft - box.clientWidth / 2 + a.offsetWidth / 2, behavior: reduce || opts.instant ? 'auto' : 'smooth' });
+      }
+    });
+    var sec = byId[id];
+    /* les carrousels étaient masqués : on les recentre maintenant qu'ils ont une taille */
+    window.dispatchEvent(new Event('resize'));
+    if (changed && !reduce && sec.animate) {
+      sec.animate([{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: EASE });
+    }
+    if (!opts.noScroll) {
+      var nav = document.querySelector('.nav');
+      var y;
+      if (id === 'carte' && changed && homeY !== null) y = homeY;
+      else y = (sec.getBoundingClientRect().top + window.pageYOffset) - (nav ? nav.offsetHeight : 0) - 8;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+    }
+    if (opts.history !== false && window.history && history.replaceState) {
+      try { history.replaceState(null, '', '#' + id); } catch (err) {}
+    }
+    return true;
+  }
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if (byId[id]) { ev.preventDefault(); openCat(id); }
+  });
+  window.addEventListener('hashchange', function () {
+    var id = location.hash.slice(1);
+    if (byId[id] && id !== current) openCat(id);
+  });
+  if (homeEl || secs.length) {
+    var h = location.hash.slice(1);
+    var startId = byId[h] ? h : (homeEl ? 'carte' : secs[0].id);
+    openCat(startId, { noScroll: !byId[h], history: false, instant: true });
+    if (byId[h]) { window.scrollTo(0, 0); openCat(startId, { history: false, instant: true }); }
+  }
+
+  /* ---- Sliders ---- */
+  function slideLeft(track, el) { return el.offsetLeft - (track.clientWidth - el.offsetWidth) / 2; }
+  function centerSlide(el, smooth) {
+    var track = el.parentNode;
+    if (!track || !track.classList.contains('track')) return;
+    track.scrollTo({ left: slideLeft(track, el), behavior: smooth && !reduce ? 'smooth' : 'auto' });
+  }
+  [].slice.call(document.querySelectorAll('.slider')).forEach(function (sl) {
+    var track = sl.querySelector('.track');
+    var slides = [].slice.call(track.querySelectorAll('.shot'));
+    var prev = sl.querySelector('.sl-prev');
+    var next = sl.querySelector('.sl-next');
+    var count = sl.querySelector('.slider-count');
+    var bar = sl.querySelector('.slider-progress');
+    var idx = 0, ticking = false;
+
+    function active() {
+      var c = track.scrollLeft + track.clientWidth / 2, best = 0, bd = Infinity;
+      slides.forEach(function (s, i) {
+        var d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - c);
+        if (d < bd) { bd = d; best = i; }
+      });
+      return best;
+    }
+    function paint() {
+      ticking = false;
+      idx = active();
+      count.textContent = (idx + 1) + ' / ' + slides.length;
+      bar.style.setProperty('--p', (idx + 1) / slides.length);
+      prev.setAttribute('aria-disabled', idx === 0 ? 'true' : 'false');
+      next.setAttribute('aria-disabled', idx === slides.length - 1 ? 'true' : 'false');
+    }
+    function go(dir) {
+      var i = Math.max(0, Math.min(slides.length - 1, idx + dir));
+      centerSlide(slides[i], true);
+    }
+    track.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+    }, { passive: true });
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    });
+    window.addEventListener('resize', function () { centerSlide(slides[idx], false); paint(); });
+
+    /* mouse drag (touch already scrolls natively) */
+    var down = false, moved = false, x0 = 0, l0 = 0;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; x0 = e.clientX; l0 = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 6) { moved = true; track.classList.add('dragging'); }
+      if (moved) track.scrollLeft = l0 - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = false;
+      if (moved) {
+        track.classList.remove('dragging');
+        centerSlide(slides[active()], true);
+        setTimeout(function () { moved = false; }, 0);
+      }
+    });
+    track.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+    paint();
+  });
+
+  /* ---- Rangées de plats : glisser à la souris (le tactile défile déjà) ---- */
+  [].slice.call(document.querySelectorAll('.band-row')).forEach(function (row) {
+    var down = false, moved = false, x0 = 0, l0 = 0;
+    row.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; x0 = e.clientX; l0 = row.scrollLeft;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 6) { moved = true; row.classList.add('dragging'); }
+      if (moved) row.scrollLeft = l0 - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = false;
+      if (moved) { row.classList.remove('dragging'); setTimeout(function () { moved = false; }, 0); }
+    });
+    row.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+  });
+
+  /* ---- Lightbox ---- */
+  var allShots = [].slice.call(document.querySelectorAll('.shot'));
+  var shots = allShots;
+  var lb = document.getElementById('lb');
+  if (!lb || !allShots.length) return;
+  var img = lb.querySelector('.lb-img');
+  var bg = lb.querySelector('.lb-bg');
+  var stage = lb.querySelector('.lb-stage');
+  var title = lb.querySelector('.lb-title');
+  var desc = lb.querySelector('.lb-desc');
+  var prices = lb.querySelector('.lb-prices');
+  var count = lb.querySelector('.lb-count');
+  var closeBtn = lb.querySelector('.lb-close');
+  var prevBtn = lb.querySelector('.lb-prev');
+  var nextBtn = lb.querySelector('.lb-next');
+  var cap = lb.querySelector('.lb-cap');
+  var cur = 0, closing = false;
+
+  function fill(i) {
+    var s = shots[i];
+    var im = s.querySelector('img');
+    var src = im.currentSrc || im.src;
+    img.src = src;
+    img.alt = im.alt;
+    bg.src = src;
+    title.textContent = s.querySelector('.shot-name').textContent;
+    var d = s.querySelector('.shot-desc');
+    desc.textContent = d ? d.textContent : '';
+    desc.hidden = !d;
+    prices.innerHTML = s.querySelector('.prices').innerHTML;
+    count.textContent = (i + 1) + ' / ' + shots.length;
+    [i + 1, i - 1].forEach(function (k) {
+      var t = shots[(k + shots.length) % shots.length].querySelector('img');
+      var pre = new Image();
+      pre.src = t.currentSrc || t.src;
+    });
+  }
+  function play(el, frames, ms) {
+    if (reduce || !el.animate) return;
+    el.animate(frames, { duration: ms, easing: EASE });
+  }
+  function open(i) {
+    closing = false;
+    cur = i;
+    fill(i);
+    lb.hidden = false;
+    document.documentElement.classList.add('lb-lock');
+    play(lb, [{ opacity: 0 }, { opacity: 1 }], 220);
+    play(img, [{ opacity: 0, transform: 'scale(0.94)' }, { opacity: 1, transform: 'none' }], 380);
+    play(cap, [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], 380);
+    closeBtn.focus({ preventScroll: true });
+  }
+  function finishClose() {
+    lb.hidden = true;
+    closing = false;
+    document.documentElement.classList.remove('lb-lock');
+    var s = shots[cur];
+    centerSlide(s, false);
+    s.focus({ preventScroll: true });
+  }
+  function close() {
+    if (lb.hidden || closing) return;
+    closing = true;
+    if (reduce || !lb.animate) { finishClose(); return; }
+    var a = lb.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 170, easing: 'ease-out' });
+    a.onfinish = finishClose;
+  }
+  function go(dir) {
+    cur = (cur + dir + shots.length) % shots.length;
+    fill(cur);
+    play(img, [{ opacity: 0, transform: 'translateX(' + (dir * 32) + 'px)' }, { opacity: 1, transform: 'none' }], 320);
+    play(cap, [{ opacity: 0 }, { opacity: 1 }], 320);
+  }
+
+  allShots.forEach(function (s) {
+    s.addEventListener('click', function () {
+      var sec = s.closest('.cat');
+      shots = [].slice.call(sec.querySelectorAll('.shot'));
+      open(shots.indexOf(s));
+    });
+  });
+  [].slice.call(document.querySelectorAll('.chip[data-cat]')).forEach(function (c) {
+    c.addEventListener('click', function () {
+      var sec = byId[c.getAttribute('data-cat')];
+      if (!sec) return;
+      shots = [].slice.call(sec.querySelectorAll('.shot'));
+      open(parseInt(c.getAttribute('data-i'), 10) || 0);
+    });
+  });
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', function () { go(-1); });
+  nextBtn.addEventListener('click', function () { go(1); });
+  stage.addEventListener('click', function (e) { if (e.target === stage) close(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    else if (e.key === 'Tab') {
+      var f = [closeBtn, prevBtn, nextBtn];
+      var i = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+
+  var sx = null, sy = null;
+  stage.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; });
+  stage.addEventListener('pointerup', function (e) {
+    if (sx === null) return;
+    var dx = e.clientX - sx, dy = e.clientY - sy;
+    sx = sy = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx < 0 ? 1 : -1);
+  });
+  stage.addEventListener('pointercancel', function () { sx = sy = null; });
+})();
+
+</script>
+<aside class="pwa" id="pwa" hidden role="region" aria-label="Installer l'application">
+  <div class="pwa-row">
+    <img class="pwa-logo" src="icons/icon-192.png" alt="" width="54" height="54">
+    <div class="pwa-txt"><strong>Installez Boulangerie Prince</strong><span id="pwa-sub"></span></div>
+    <div class="pwa-act">
+      <button type="button" class="pwa-install" id="pwa-install">Installer</button>
+      <button type="button" class="pwa-later" id="pwa-later">Plus tard</button>
+    </div>
+  </div>
+  <ol class="pwa-steps" id="pwa-steps" hidden></ol>
+</aside>
+<script>
+(function () {
+  /* ---- Service worker (nécessaire pour l'installation) ---- */
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+  }
+
+  /* ---- Bannière d'installation ---- */
+  var box = document.getElementById('pwa');
+  if (!box) return;
+  var sub = document.getElementById('pwa-sub');
+  var steps = document.getElementById('pwa-steps');
+  var btnInstall = document.getElementById('pwa-install');
+  var btnLater = document.getElementById('pwa-later');
+  var root = document.documentElement;
+
+  var mq = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
+  var installed = mq('(display-mode: standalone)') || mq('(display-mode: fullscreen)') || mq('(display-mode: minimal-ui)') || window.navigator.standalone === true;
+  if (installed) return; /* déjà dans l'application : jamais de bannière */
+
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  var inApp = /FBAN|FBAV|FB_IAB|Instagram|Line\/|MicroMessenger|; wv\)|TikTok|Snapchat/i.test(ua);
+  var isAndroid = /Android/i.test(ua);
+  var deferred = null, mode = '', dismissed = false, timer = null;
+
+  function setSteps(list) {
+    steps.innerHTML = '';
+    list.forEach(function (t) { var li = document.createElement('li'); li.innerHTML = t; steps.appendChild(li); });
+    steps.hidden = false;
+  }
+  function show(m) {
+    if (dismissed || installed) return;
+    mode = m;
+    box.classList.remove('steps-only');
+    steps.hidden = true;
+    if (m === 'native') {
+      sub.textContent = "Le menu sur votre écran d'accueil, en plein écran, en un geste.";
+      btnInstall.hidden = false;
+    } else if (m === 'ios') {
+      sub.textContent = "Ajoutez le menu à votre écran d'accueil pour l'ouvrir comme une application.";
+      btnInstall.hidden = true; box.classList.add('steps-only');
+      setSteps(["Touchez le bouton <b>Partager</b> de Safari, en bas de l'écran.", "Faites défiler et choisissez <b>Sur l'écran d'accueil</b>.", "Touchez <b>Ajouter</b> en haut à droite."]);
+    } else if (m === 'open') {
+      sub.textContent = "Pour installer l'application, ouvrez ce lien dans " + (isIOS ? 'Safari' : 'Chrome') + '.';
+      btnInstall.hidden = true; box.classList.add('steps-only');
+      setSteps(["Touchez le menu de cette page (les trois points ou le bouton de partage).", "Choisissez <b>Ouvrir dans le navigateur</b>, puis installez depuis " + (isIOS ? 'Safari' : 'Chrome') + '.']);
+    } else {
+      sub.textContent = "Ajoutez le menu à votre écran d'accueil pour l'ouvrir comme une application.";
+      btnInstall.hidden = true; box.classList.add('steps-only');
+      setSteps(["Ouvrez le menu du navigateur (les trois points).", "Touchez <b>Installer</b> ou <b>Ajouter à l'écran d'accueil</b>."]);
+    }
+    if (!box.hidden && box.classList.contains('show')) return;
+    box.hidden = false;
+    root.classList.add('pwa-on');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { box.classList.add('show'); }); });
+  }
+  function hide() {
+    box.classList.remove('show');
+    root.classList.remove('pwa-on');
+    setTimeout(function () { if (!box.classList.contains('show')) box.hidden = true; }, 450);
+  }
+
+  /* Fermer ne masque que pour cette visite : au prochain passage sur le lien, la bannière revient. */
+  btnLater.addEventListener('click', function () { dismissed = true; hide(); });
+
+  btnInstall.addEventListener('click', function () {
+    if (!deferred) return;
+    var d = deferred; deferred = null;
+    d.prompt();
+    d.userChoice.then(function (c) { if (c && c.outcome === 'accepted') { installed = true; } hide(); });
+  });
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    clearTimeout(timer);
+    show('native');
+  });
+  window.addEventListener('appinstalled', function () { installed = true; deferred = null; hide(); });
+
+  /* Retour sur l'onglet ou depuis le cache : la bannière revient tant que l'appli n'est pas installée. */
+  window.addEventListener('pageshow', function (e) { if (e.persisted && !installed && (deferred || mode)) { dismissed = false; show(mode || 'native'); } });
+
+  if (inApp) { timer = setTimeout(function () { show('open'); }, 1500); }
+  else if (isIOS) { timer = setTimeout(function () { show('ios'); }, 1500); }
+  else if (isAndroid && !('onbeforeinstallprompt' in window)) { timer = setTimeout(function () { show('manual'); }, 2000); }
+})();
+</script>
+</body>
+</html>
